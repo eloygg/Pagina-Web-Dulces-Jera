@@ -1,0 +1,583 @@
+/* ============================================================
+   DULCES JERA – styles.css
+   ============================================================ */
+
+/* ============================================================
+   1. RESET
+   ============================================================ */
+
+   /* Aqui estoy haciendo un reset pa que se ponga todo 
+   con la misma configuración de tamaño padding... etc */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================================
+   2. VARIABLES
+   ============================================================ */
+
+   /* A groso modo lo que estas haciendo es definir variables tipo fuentes
+   colores, tamaños para tenerlo todo bien estructurado y definido
+   para que sea mas fácil y rápido
+   Aquí he buscado los colores de otra pagina web parecida y como visualmente 
+   era bonita pues los he traído para definirlos. */
+:root {
+  --verde:      #83B735;
+  --negro:      #1a1a1a;
+  --blanco:     #ffffff;
+  --crema:      #f9f6f0;
+  --gris-suave: #f2f2f2;
+  --gris-texto: #444444;
+
+  --fuente: "Noto Sans", "Open Sans", sans-serif;
+
+  --texto-size:   17px;
+  --texto-peso:   400;
+  --texto-linea:  1.5em;
+
+  --acento-size:  15px;
+  --acento-peso:  600;
+  --acento-linea: 1.3em;
+
+  --radio: 45px;
+  --sombra: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* ============================================================
+   3. BASE
+   ============================================================ */
+body {
+  font-family: var(--fuente);
+  font-size: var(--texto-size);
+  font-weight: var(--texto-peso);
+  line-height: var(--texto-linea);
+  color: var(--negro);
+  background: var(--crema);
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2em;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   4. HEADER TOP – MARQUEE
+   ============================================================ */
+.header-top {
+  background: var(--negro);
+  color: var(--blanco);
+  font-size: var(--acento-size);
+  font-weight: var(--acento-peso);
+  overflow: hidden;
+  padding: 6px 0;
+}
+
+.header-top__inner {
+  display: flex;
+  align-items: center;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee__inner {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+}
+
+.marquee__inner p {
+  white-space: nowrap;
+  color: var(--blanco);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   5. HEADER MAIN
+   ============================================================ */
+.header-main {
+  background: var(--blanco);
+  border-bottom: 3px solid var(--verde);
+  padding: 1rem 2rem;
+
+}
+
+.header-main__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo img:first-child {
+  width: 700px;
+}
+
+.logo img:last-child {
+  width: 150px;
+  margin-bottom: 25px;
+}
+
+/* Nav */
+.nav__list {
+  display: flex;
+  gap: 5.5rem;
+}
+
+.nav__link {
+  font-size: var(--acento-size);
+  font-weight: var(--acento-peso);
+  color: var(--negro);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radio);
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav__link:hover {
+  background: var(--verde);
+  color: var(--blanco);
+}
+
+.nav__link--cta {
+  background: var(--verde);
+  color: var(--blanco);
+  font-size: var(--acento-size);
+  font-weight: var(--acento-peso);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radio);
+  transition: background 0.2s;
+}
+
+.nav__link--cta:hover {
+  background: var(--negro);
+}
+
+/* ============================================================
+   6. HERO
+   ============================================================ */
+.hero {
+  background: var(--crema);
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.hero__title {
+  flex: 1;
+}
+
+.hero__title h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--negro);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--verde);
+  color: var(--blanco);
+  font-weight: var(--acento-peso);
+  padding: 0.75rem 2rem;
+  border-radius: var(--radio);
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: var(--negro);
+}
+
+.hero img {
+  width: 65%;
+  border-radius: var(--radio);
+}
+
+/* ============================================================
+   7. SOBRE NOSOTROS
+   ============================================================ */
+.about {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about__card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.about__card img {
+  width: 45%;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  flex-direction: row-reverse;
+}
+
+.about__card div {
+  flex: 1;
+}
+
+.about__card--reverse {
+  flex-direction: row;
+}
+
+/* ============================================================
+   8. PRODUCTOS
+   ============================================================ */
+.products {
+  padding: 4rem 2rem;
+  background: var(--gris-suave);
+}
+
+.products h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.products__grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+#party .products__grid {
+  grid-template-columns: 1fr;
+  max-width: 400px;
+}
+
+.product-card {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  padding: 1.2rem;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: border 0.2s, transform 0.2s;
+}
+
+.product-card:hover {
+  border-color: var(--verde);
+  transform: translateY(-4px);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 22px;
+  margin-bottom: 0.8rem;
+}
+
+.product-card h3 {
+  color: var(--negro);
+  margin-bottom: rem;
+}
+
+.product-card p {
+  font-size: var(--acento-size);
+  color: var(--gris-texto);
+}
+
+/* ============================================================
+   9. CONTACTO + UBICACIÓN
+   ============================================================ */
+/* ============================================================
+   CONTACTO MEJORADO
+   ============================================================ */
+
+   .form form div {
+  margin-bottom: 1rem;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-family: var(--fuente);
+  font-size: var(--acento-size);
+}
+
+.form button {
+  background: var(--verde);
+  color: var(--blanco);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radio);
+  font-weight: var(--acento-peso);
+  cursor: pointer;
+  width: 100%;
+}
+
+.contacto-ubicacion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* equilibrio visual */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  border-top: 3px solid var(--verde);
+}
+
+/* Lado izquierdo: formulario + datos */
+.contacto-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.form h2 {
+  text-align: left;
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.form button[type="submit"] {
+  background: var(--verde);
+  color: var(--blanco);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radio);
+  font-weight: var(--acento-peso);
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+.form button[type="submit"]:hover {
+  background: var(--negro);
+}
+
+/* Bloque de datos de contacto */
+.contacto-datos {
+  background: var(--blanco);
+  padding: 1.5rem 2rem;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.contacto-datos h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--verde);
+}
+
+.datos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.dato-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1rem;
+  color: var(--gris-texto);
+}
+
+.dato-icon {
+  font-size: 1.4rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.dato-item a {
+  color: var(--negro);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.dato-item a:hover {
+  color: var(--verde);
+}
+
+/* Lado derecho: imágenes */
+.ubicacion-mejorada h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.imagenes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.imagen-card {
+  margin: 0;
+  background: var(--blanco);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  transition: transform 0.2s;
+}
+
+.imagen-card:hover {
+  transform: translateY(-4px);
+}
+
+.imagen-card img {
+  width: 100%;
+  height: 200px;        /* altura fija para uniformidad */
+  object-fit: cover;    /* recorta si es necesario, pero llena el espacio */
+  }
+  .imagen-card:last-child img {
+  height: 100%;
+}
+
+.imagen-card figcaption {
+  padding: 0.8rem;
+  text-align: center;
+  font-weight: var(--acento-peso);
+  color: var(--gris-texto);
+  background: var(--blanco);
+  border-top: 1px solid #eee;
+}
+
+/* ============================================================
+   RESPONSIVE (ajustes para la sección de contacto)
+   ============================================================ */
+@media (max-width: 768px) {
+  .contacto-ubicacion {
+    grid-template-columns: 1fr;   /* apilar en móvil */
+    gap: 2rem;
+  }
+
+  .imagenes-grid {
+    grid-template-columns: 1fr;   /* imágenes también apiladas */
+  }
+
+  .imagen-card img {
+    height: 200px;                /* un poco más pequeñas en móvil */
+  }
+
+  .datos-grid {
+    gap: 0.6rem;
+  }
+}
+
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
+footer {
+  background: var(--negro);
+  color: var(--blanco);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: var(--acento-size);
+}
+
+footer a {
+  color: var(--verde);
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: var(--blanco);
+}
+
+/* ============================================================
+   11. RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero img {
+    width: 100%;
+  }
+
+  .about__card,
+  .about__card--reverse {
+    flex-direction: column;
+  }
+
+  .about__card img {
+    width: 100%;
+  }
+
+  .products__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto-ubicacion {
+    grid-template-columns: 1fr;
+  }
+
+  .ubicacion__grid {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
