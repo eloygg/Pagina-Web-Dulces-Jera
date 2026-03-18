@@ -150,14 +150,20 @@ h3 {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .logo img:first-child {
-  width: 700px;
+  max-width: 700px;
+  width: 90%;
+  height: auto;
 }
 
 .logo img:last-child {
-  width: 150px;
+  max-width: 150px;
+  width: 100px;
+  height: auto;
   margin-bottom: 25px;
 }
 
@@ -235,6 +241,7 @@ h3 {
 
 .hero img {
   width: 65%;
+  height: auto;
   border-radius: var(--radio);
 }
 
@@ -256,9 +263,9 @@ h3 {
 
 .about__card img {
   width: 45%;
+  height: auto;
   border-radius: var(--radio);
   box-shadow: var(--sombra);
-  flex-direction: row-reverse;
 }
 
 .about__card div {
@@ -313,13 +320,14 @@ h3 {
 
 .product-card img {
   width: 100%;
+  height: auto;
   border-radius: 22px;
   margin-bottom: 0.8rem;
 }
 
 .product-card h3 {
   color: var(--negro);
-  margin-bottom: rem;
+  margin-bottom: 1rem;
 }
 
 .product-card p {
@@ -329,9 +337,6 @@ h3 {
 
 /* ============================================================
    9. CONTACTO + UBICACIÓN
-   ============================================================ */
-/* ============================================================
-   CONTACTO MEJORADO
    ============================================================ */
 
    .form form div {
@@ -479,11 +484,12 @@ h3 {
 
 .imagen-card img {
   width: 100%;
-  height: 200px;        /* altura fija para uniformidad */
-  object-fit: cover;    /* recorta si es necesario, pero llena el espacio */
-  }
-  .imagen-card:last-child img {
-  height: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.imagen-card:last-child img {
+  height: 250px;
 }
 
 .imagen-card figcaption {
@@ -546,6 +552,14 @@ footer a:hover {
    ============================================================ */
 @media (max-width: 768px) {
 
+  .logo img:first-child {
+    width: 80%;
+  }
+
+  .logo img:last-child {
+    width: 70px;
+  }
+
   .hero {
     flex-direction: column;
     text-align: center;
@@ -574,6 +588,10 @@ footer a:hover {
 
   .ubicacion__grid {
     grid-template-columns: 1fr;
+  }
+
+  .imagen-card img {
+    height: 180px;
   }
 
   footer {
